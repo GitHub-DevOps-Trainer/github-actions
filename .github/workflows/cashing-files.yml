@@ -10,7 +10,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ~/.npm
-          key: ${{ runner.os }}-npm-cache-file${{ hashFiles('**/package-lock.json') }} # linux-npm-cache-file-7383493
+          key: ${{ runner.os }}-npm-cache-file${{ hashFiles('**/package-lock.json') }} # linux-npm-cache-file-4356566
           restore-keys: |
             ${{ runner.os }}-npm-cache-file
             ${{ runner.os }}-
