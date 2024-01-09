@@ -1,11 +1,8 @@
 {
   "name": "gh-actions",
   "version": "1.0.0",
-  "scripts": {
-    "start": "node index.js",
-    "test": "npm run lint && npm run test",
-    "lint": "eslint .",
-    "test": "jest --coverage"
+   "scripts": {
+   "test": "jest --coverage"
   },
     "repository": {
     "type": "git",
