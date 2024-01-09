@@ -12,7 +12,7 @@ jobs:
         - 80
     steps:
       - name: Create a file
-        run: echo 'Content tp be displayed at entrypoint' > text.txt
+        run: echo 'Content to be displayed at entrypoint' > text.txt
       - name: Log node version
         uses: docker://node:18.16-alpine3.17
         with:
