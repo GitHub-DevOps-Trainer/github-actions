@@ -2,24 +2,18 @@ name: Docker volume and Network
 on: [workflow_dispatch]
 
 jobs:
-  deploy:
+  test:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Pull Docker image
-        run: docker pull hello-world:latest
+      - name: Build Docker image
+        run: docker build -t my-app .
 
-      - name: Create volume
-        run: docker volume create my-volume
+      - name: Create file
+        run: docker run -v my-volume:/app/test-results --network host my-app sh -c "echo 'Hello, World!' > /app/test-results/file.txt"
 
-      - name: Create network
-        run: docker network create my-network
-
-      - name: Deploy
-        run: docker run -d --name my-app-container -v my-volume:/app/data --network my-network hello-world:latest
-
-      - name: Run Tests
-        run: docker run --rm --network my-network hello-world:latest npm test
+      - name: Display contents
+        run: docker run -v my-volume:/app/test-results --network host my-app cat /app/test-results/file.txt
