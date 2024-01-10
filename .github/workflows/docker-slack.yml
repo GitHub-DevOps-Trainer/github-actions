@@ -1,4 +1,4 @@
-name: Docker
+name: Docker Slack message
 on: [workflow_dispatch]
 
 jobs:
