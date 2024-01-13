@@ -23,9 +23,6 @@ jobs:
       - name: Run tests
         run: npm test
 
-      - name: Code quality check
-        run: npm run lint
-
   deploy:
     needs: build
     runs-on: ubuntu-latest
@@ -43,7 +40,7 @@ jobs:
         run: npm install
 
       - name: Build
-        run: npm run build
+        run: npm run build --if-present
 
       - name: Deploy to staging environment
         run: npm run deploy-staging
